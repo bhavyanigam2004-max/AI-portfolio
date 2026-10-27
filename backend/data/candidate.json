@@ -1,0 +1,197 @@
+{
+  "name": "Bhavya Nigam",
+
+  "contact": {
+    "phone": "+91 9140128934",
+    "email": "bhavyanigam2004@gmail.com"
+  },
+
+  "summary": "Computer Science undergraduate (B.Tech, 2027) and MERN developer building secure REST APIs and LLM-integrated real-time apps, with QA internship experience. Seeking Full Stack and Software Engineer roles.",
+
+  "education": [
+    {
+      "institution": "Ajay Kumar Garg Engineering College, Ghaziabad",
+      "degree": "B.Tech in Computer Science",
+      "cgpa": 7.48,
+      "start_year": 2023,
+      "graduation_year": 2027
+    },
+    {
+      "institution": "Dr. Virendra Swaroop Education Centre, Awadhpuri",
+      "class_xii": {
+        "board": "ISC",
+        "percentage": 85
+      },
+      "class_x": {
+        "board": "ICSE",
+        "percentage": 92
+      }
+    }
+  ],
+
+  "skills": {
+    "languages": [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "C++",
+      "SQL"
+    ],
+
+    "full_stack": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "Redux Toolkit",
+      "Socket.io",
+      "REST APIs",
+      "JWT Authentication",
+      "HTML",
+      "CSS"
+    ],
+
+    "databases": [
+      "MongoDB",
+      "Mongoose",
+      "MySQL"
+    ],
+
+    "ai_and_llm": [
+      "Google Gemini API",
+      "LLM Integration",
+      "Prompt Engineering",
+      "ChatGPT",
+      "GitHub Copilot",
+      "Claude"
+    ],
+
+    "testing": [
+      "Postman",
+      "API Testing",
+      "Functional Testing",
+      "Database Testing",
+      "SQL",
+      "Test Case Design",
+      "Defect Tracking"
+    ],
+
+    "tools": [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "MySQL Workbench",
+      "Microsoft Excel",
+      "Render",
+      "Cloudinary",
+      "Nodemailer"
+    ],
+
+    "computer_science": [
+      "Data Structures & Algorithms",
+      "DBMS",
+      "OOPS",
+      "Operating Systems",
+      "Computer Networks",
+      "SDLC"
+    ]
+  },
+
+  "experience": [
+    {
+      "company": "Genospark Innovative Solutions Pvt. Ltd.",
+      "role": "Software Testing & Web Development Intern",
+      "start": "Jul 2026",
+      "end": "Sep 2026",
+      "responsibilities": [
+        "Designed and executed 150+ test cases across the Exam (EMS) and Question (QMS) Management modules.",
+        "Covered functional, database, and role-based access scenarios.",
+        "Tested 40+ REST API endpoints in Postman.",
+        "Validated API responses, status codes, and error handling.",
+        "Reported and tracked 20+ defects with reproduction steps.",
+        "Collaborated with developers through fix and retest.",
+        "Performed database verification with SQL queries to confirm data integrity after UI and API operations."
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "Real-Time Chat App with AI Smart Replies",
+      "technologies": [
+        "MERN Stack",
+        "Socket.io",
+        "Google Gemini API"
+      ],
+      "details": [
+        "Built a real-time chat application with 10 REST API endpoints.",
+        "Implemented 3 data models.",
+        "Used Socket.io for low-latency messaging and live online status.",
+        "Integrated Google Gemini 2.5 Flash to generate 3 one-tap smart reply suggestions per incoming message.",
+        "Implemented graceful fallback so chat continues if the AI API fails.",
+        "Protected the AI endpoint with JWT and input validation.",
+        "Implemented httpOnly JWT cookie authentication with bcrypt hashing.",
+        "Protected 100% of user and message endpoints (7 of 7).",
+        "Used Redux Toolkit for state management.",
+        "Implemented Cloudinary image sharing.",
+        "Deployed on Render."
+      ]
+    },
+
+    {
+      "name": "Banking Backend System",
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+        "Nodemailer"
+      ],
+      "details": [
+        "Developed a RESTful financial ledger backend with 8 API endpoints.",
+        "Covered authentication, account management, and fund transfers.",
+        "Implemented transfers using MongoDB transactions.",
+        "Used double-entry debit/credit ledger entries.",
+        "Implemented ledger-derived balance validation.",
+        "Used unique idempotency keys to prevent duplicate transactions.",
+        "Designed 5 Mongoose models including immutable ledger records.",
+        "Implemented JWT authentication and token blacklisting.",
+        "Used bcrypt for password security.",
+        "Implemented role-based system-user authorization.",
+        "Added Nodemailer notifications.",
+        "Deployed on Render."
+      ]
+    }
+  ],
+
+  "certifications": [
+    {
+      "name": "Generative AI – 40-Hour Training Program",
+      "organization": "Campussutras at AKGEC",
+      "date": "Jun - Jul 2026"
+    },
+    {
+      "name": "Supervised Machine Learning: Regression and Classification",
+      "organization": "DeepLearning.AI & Stanford Online",
+      "date": "Apr 2026"
+    }
+  ],
+
+  "achievements": [
+    {
+      "title": "Coordinator, Team Renaissance",
+      "organization": "Cultural Society, AKGEC",
+      "details": [
+        "Coordinated 7–8 college events.",
+        "Events included a freshers' event, a blood donation camp, and an orientation program.",
+        "Handled oratory and event management.",
+        "Supported an orientation program for 500+ students."
+      ]
+    },
+    {
+      "title": "DSA Practice",
+      "details": [
+        "Solved 100+ DSA problems on LeetCode in C++."
+      ]
+    }
+  ]
+}
