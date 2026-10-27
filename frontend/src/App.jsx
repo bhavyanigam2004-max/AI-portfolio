@@ -2,21 +2,22 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+const API_URL = "https://ai-portfolio-backend-0icc.onrender.com"
 
 function App() {
-  const [question, setQuestion] = useState('')
-const [messages, setMessages] = useState([])
-const [isLoading, setIsLoading] = useState(false)
-const [jobDescription, setJobDescription] = useState('')
-const [jobMatchResult, setJobMatchResult] = useState('')
-const [jobMatchError, setJobMatchError] = useState('')
-const [isMatching, setIsMatching] = useState(false)
-const messagesEndRef = useRef(null)
-useEffect(() => {
+ const [question, setQuestion] = useState('')
+ const [messages, setMessages] = useState([])
+ const [isLoading, setIsLoading] = useState(false)
+ const [jobDescription, setJobDescription] = useState('')
+ const [jobMatchResult, setJobMatchResult] = useState('')
+ const [jobMatchError, setJobMatchError] = useState('')
+ const [isMatching, setIsMatching] = useState(false)
+ const messagesEndRef = useRef(null)
+ useEffect(() => {
   messagesEndRef.current?.scrollIntoView({
     behavior: 'smooth',
   })
-}, [messages])
+ }, [messages])
 
  const handleSend = async () => {
  if (!question.trim()) return
@@ -33,7 +34,7 @@ try {
   ])
   setQuestion('')
 
-  const response = await fetch("http://localhost:8000/chat", {
+  const response = await fetch(`${API_URL}/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -102,7 +103,7 @@ while (true) {
   setJobMatchResult('')
 
   try {
-    const response = await fetch("http://localhost:8000/match-job", {
+    const response = await fetch(`${API_URL}/match-job`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
