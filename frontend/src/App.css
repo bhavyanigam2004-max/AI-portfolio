@@ -17,11 +17,7 @@ textarea {
 
 /* ================= APP ================= */
 
-.app {
-  min-height: 100vh;
-  display: flex;
-  background: #f8fafc;
-}
+
 
 /* ================= SIDEBAR ================= */
 
@@ -197,13 +193,16 @@ textarea {
 }
 
 /* ================= MAIN CONTENT ================= */
+.app {
+  min-height: 100vh;
+  display: block;
+  background: #f8fafc;
+}
 
 .main-content {
   width: calc(100% - 260px);
   min-height: 100vh;
-
   margin-left: 260px;
-
   background: #f8fafc;
 }
 
@@ -214,12 +213,15 @@ textarea {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   padding: 0 32px;
 
   background: white;
   border-bottom: 1px solid #e5e7eb;
+}
+
+.topbar > div {
+  text-align: left;
 }
 
 .topbar h1 {
@@ -240,6 +242,8 @@ textarea {
 }
 
 .clear-chat-btn {
+  margin-left: auto;
+
   padding: 9px 16px;
 
   border: 1px solid #d1d5db;
@@ -253,10 +257,6 @@ textarea {
 
   cursor: pointer;
   transition: 0.2s ease;
-}
-
-.clear-chat-btn:hover {
-  background: #f3f4f6;
 }
 
 /* ================= CHAT PAGE ================= */
@@ -745,13 +745,11 @@ textarea {
 
   .main-content {
     width: calc(100% - 220px);
-
     margin-left: 220px;
   }
 
   .topbar {
     height: 75px;
-
     padding: 0 16px;
   }
 
@@ -765,9 +763,11 @@ textarea {
 
   .clear-chat-btn {
     padding: 7px 10px;
-
     font-size: 11px;
   }
+
+  /* baaki mobile CSS... */
+}
 
   .chat-page {
     height: calc(100vh - 75px);
