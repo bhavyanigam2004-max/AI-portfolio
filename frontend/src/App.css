@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -6,245 +5,285 @@
 body {
   margin: 0;
   font-family: Inter, Arial, sans-serif;
-  background: #f6f8fc;
-  color: #1f2937;
+  background: #f8fafc;
+  color: #111827;
 }
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* ================= APP ================= */
 
 .app {
   min-height: 100vh;
+  display: flex;
+  background: #f8fafc;
 }
 
-/* ================= HEADER ================= */
+/* ================= SIDEBAR ================= */
 
-.header {
-  position: relative;
-  text-align: center;
-  padding: 55px 20px 45px;
-  background: linear-gradient(135deg, #111827, #1e3a8a);
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px 16px;
+
+  background: #111827;
   color: white;
+
+  z-index: 20;
 }
 
-.header h1 {
-  margin: 0;
-  font-size: 42px;
-  font-weight: 800;
-  letter-spacing: -1px;
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
-.header p {
-  margin: 10px 0 0;
-  color: #dbeafe;
-  font-size: 17px;
-}
+.brand-avatar {
+  width: 44px;
+  height: 44px;
 
-.header button {
-  position: absolute;
-  right: 30px;
-  top: 30px;
-  padding: 10px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-  backdrop-filter: blur(8px);
-  transition: 0.2s ease;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.header button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
-}
-
-/* ================= JOB MATCHING ================= */
-
-.job-matching {
-  width: 85%;
-  max-width: 1000px;
-  margin: 35px auto 25px;
-  padding: 28px;
-  background: white;
-  border-radius: 18px;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
-  border: 1px solid #e5e7eb;
-}
-
-.job-matching h2 {
-  margin: 0 0 8px;
-  font-size: 22px;
-}
-
-.job-matching textarea {
-  width: 100%;
-  min-height: 130px;
-  margin-top: 15px;
-  padding: 15px;
-  resize: vertical;
-  border: 1px solid #d1d5db;
   border-radius: 12px;
-  font-family: inherit;
-  font-size: 14px;
-  outline: none;
-  transition: 0.2s;
-}
 
-.job-matching textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.job-matching button {
-  margin: 14px 8px 0 0;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 9px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-.job-matching button:first-of-type {
   background: #2563eb;
   color: white;
-}
 
-.job-matching button:last-of-type {
-  background: #f1f5f9;
-  color: #374151;
-}
-
-.job-matching button:hover {
-  transform: translateY(-1px);
-  opacity: 0.9;
-}
-
-.job-matching button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* ================= JOB RESULT ================= */
-
-.job-match-result {
-  width: 85%;
-  max-width: 1000px;
-  margin: 25px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
-}
-
-.job-match-result h2 {
-  margin-top: 0;
-  margin-bottom: 25px;
-}
-
-.job-match-result h3 {
-  margin-top: 25px;
-  margin-bottom: 12px;
-}
-
-.match-score {
-  margin-bottom: 25px;
-}
-
-.score {
-  font-size: 46px;
+  font-size: 21px;
   font-weight: 800;
-  margin-top: 5px;
 }
 
-.score-bar {
+.sidebar-brand h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.sidebar-brand p {
+  margin: 4px 0 0;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* New chat */
+
+.new-chat-btn {
   width: 100%;
-  height: 9px;
-  margin-top: 12px;
-  background: #e5e7eb;
-  border-radius: 20px;
-  overflow: hidden;
-}
+  padding: 12px 14px;
 
-.score-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #2563eb, #4f46e5);
-  border-radius: 20px;
-  transition: width 0.5s ease;
-}
+  border: 1px solid #374151;
+  border-radius: 9px;
 
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin: 15px 0 25px;
-}
+  background: transparent;
+  color: white;
 
-.skill-badge {
-  padding: 7px 13px;
-  background: #eff6ff;
-  color: #1d4ed8;
-  border: 1px solid #dbeafe;
-  border-radius: 20px;
+  text-align: left;
+  font-size: 14px;
   font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.new-chat-btn:hover {
+  background: #1f2937;
+}
+
+/* Sidebar sections */
+
+.sidebar-section {
+  margin-top: 32px;
+}
+
+.sidebar-section h3 {
+  margin: 0 0 12px;
+  padding-left: 8px;
+
+  color: #6b7280;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.sidebar-tool {
+  width: 100%;
+  padding: 10px 9px;
+  margin-bottom: 4px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: transparent;
+  color: #d1d5db;
+
+  text-align: left;
+  font-size: 13px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.sidebar-tool:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.sidebar-tool.active-tool {
+  background: #1f2937;
+  color: white;
+}
+
+/* History */
+
+.history-item {
+  padding: 10px 9px;
+
+  border-radius: 7px;
+
+  background: #1f2937;
+  color: #e5e7eb;
+
   font-size: 13px;
 }
 
-.job-match-result ul {
-  padding-left: 22px;
+.history-item span {
+  margin-right: 8px;
+  color: #9ca3af;
 }
 
-.job-match-result li {
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
+.no-history {
+  margin: 0;
+  padding: 0 9px;
 
-.job-match-result li p {
-  margin: 5px 0 0;
   color: #6b7280;
+  font-size: 13px;
 }
 
-.job-match-result > p {
-  line-height: 1.7;
-  color: #4b5563;
+/* Bottom */
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding: 15px 8px 5px;
+
+  color: #9ca3af;
+  font-size: 11px;
 }
 
-/* ================= ERROR ================= */
+.online-dot {
+  display: inline-block;
 
-.job-match-error {
-  width: 85%;
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 14px 18px;
-  background: #fef2f2;
-  color: #b91c1c;
-  border: 1px solid #fecaca;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: 600;
+  width: 7px;
+  height: 7px;
+
+  margin-right: 7px;
+
+  background: #22c55e;
+  border-radius: 50%;
 }
 
-/* ================= CHAT ================= */
+/* ================= MAIN CONTENT ================= */
 
-.chat-container {
-  width: 85%;
-  max-width: 1000px;
-  margin: 30px auto 50px;
+.main-content {
+  width: calc(100% - 260px);
+  min-height: 100vh;
+
+  margin-left: 260px;
+
+  background: #f8fafc;
+}
+
+/* ================= TOP BAR ================= */
+
+.topbar {
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
   background: white;
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
-  overflow: hidden;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.messages {
-  height: 500px;
+.topbar h1 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.topbar p {
+  margin: 5px 0 0;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.clear-chat-btn {
+  padding: 9px 16px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: white;
+  color: #374151;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.clear-chat-btn:hover {
+  background: #f3f4f6;
+}
+
+/* ================= CHAT PAGE ================= */
+
+.chat-page {
+  height: calc(100vh - 82px);
+
+  display: flex;
+  flex-direction: column;
+
+  background: #f8fafc;
+}
+
+/* Messages */
+
+.chat-page .messages {
+  flex: 1;
+
   overflow-y: auto;
-  padding: 25px;
-  background: #fafbff;
+
+  padding: 35px 10%;
+
+  background: #f8fafc;
 }
 
-/* Hide scrollbar */
+/* Scrollbar */
+
 .messages::-webkit-scrollbar {
   width: 5px;
 }
@@ -254,185 +293,524 @@ body {
   border-radius: 10px;
 }
 
-/* ================= MESSAGE BUBBLES ================= */
+/* ================= WELCOME ================= */
 
-.message {
-  max-width: 75%;
-  margin-bottom: 18px;
-  padding: 13px 16px;
+.welcome-message {
+  max-width: 620px;
+
+  margin: 110px auto 0;
+
+  text-align: center;
+}
+
+.welcome-avatar {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 18px;
+
   border-radius: 15px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.welcome-message h2 {
+  margin: 0 0 10px;
+
+  color: #111827;
+
+  font-size: 24px;
+}
+
+.welcome-message p {
+  margin: 0;
+
+  color: #6b7280;
+
+  line-height: 1.6;
+}
+
+/* ================= CHAT MESSAGES ================= */
+
+.chat-page .message {
+  max-width: 720px;
+
+  margin-bottom: 20px;
+
+  padding: 14px 17px;
+
+  border-radius: 14px;
+
   line-height: 1.55;
   font-size: 15px;
 }
 
-.message strong {
+.chat-page .message strong {
   display: block;
-  margin-bottom: 5px;
+
+  margin-bottom: 6px;
+
   font-size: 13px;
 }
 
-.message p {
+.chat-page .message p {
   margin: 5px 0;
 }
 
-.message ul {
+.chat-page .message ul {
   padding-left: 20px;
 }
 
-.user-message {
+/* User */
+
+.chat-page .user-message {
   margin-left: auto;
+
   background: #2563eb;
   color: white;
+
   border-bottom-right-radius: 5px;
 }
 
-.ai-message {
+/* AI */
+
+.chat-page .ai-message {
   margin-right: auto;
+
   background: white;
   color: #1f2937;
+
   border: 1px solid #e5e7eb;
+
   border-bottom-left-radius: 5px;
 }
 
 /* ================= TYPING ================= */
 
 .typing-indicator {
-  display: inline-block;
-  margin-top: 5px;
+  width: fit-content;
+
   padding: 10px 14px;
+
   background: #eef2ff;
   color: #4f46e5;
+
   border-radius: 12px;
+
   font-size: 13px;
   font-weight: 600;
 }
 
-/* ================= INPUT ================= */
+/* ================= CHAT INPUT ================= */
 
-.input-area {
+.chat-page .input-area {
   display: flex;
-  gap: 10px;
-  padding: 18px;
+  gap: 12px;
+
+  padding: 18px 10%;
+
   background: white;
+
   border-top: 1px solid #e5e7eb;
 }
 
-.input-area input {
+.chat-page .input-area input {
   flex: 1;
-  padding: 13px 15px;
+
+  min-width: 0;
+
+  padding: 13px 16px;
+
   border: 1px solid #d1d5db;
   border-radius: 10px;
-  font-size: 15px;
+
+  background: white;
+  color: #111827;
+
   outline: none;
+
+  font-size: 14px;
 }
 
-.input-area input:focus {
+.chat-page .input-area input::placeholder {
+  color: #9ca3af;
+}
+
+.chat-page .input-area input:focus {
   border-color: #2563eb;
+
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
 }
 
-.input-area button {
-  padding: 0 22px;
+.chat-page .input-area button {
+  min-width: 90px;
+
+  padding: 0 20px;
+
   border: none;
   border-radius: 10px;
+
   background: #2563eb;
   color: white;
+
   font-weight: 700;
+
   cursor: pointer;
+
   transition: 0.2s ease;
 }
 
-.input-area button:hover {
+.chat-page .input-area button:hover {
   background: #1d4ed8;
-  transform: translateY(-1px);
+}
+
+.chat-page .input-area button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================= JOB PAGE ================= */
+
+.job-page {
+  min-height: calc(100vh - 82px);
+
+  padding: 45px 8%;
+
+  background: #f8fafc;
+}
+
+.job-card {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 32px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+.job-card-header {
+  margin-bottom: 22px;
+}
+
+.job-card-header h2 {
+  margin: 0 0 8px;
+
+  color: #111827;
+
+  font-size: 24px;
+}
+
+.job-card-header p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+/* Job textarea */
+
+.job-card textarea {
+  width: 100%;
+  min-height: 190px;
+
+  padding: 15px;
+
+  resize: vertical;
+
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+
+  background: white;
+  color: #111827;
+
+  outline: none;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.job-card textarea::placeholder {
+  color: #9ca3af;
+}
+
+.job-card textarea:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* Job buttons */
+
+.job-buttons {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+.match-btn,
+.clear-match-btn {
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 9px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.match-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.match-btn:hover {
+  background: #1d4ed8;
+}
+
+.match-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clear-match-btn {
+  background: #f1f5f9;
+  color: #374151;
+}
+
+/* ================= JOB RESULT ================= */
+
+.job-result {
+  margin-top: 30px;
+
+  padding-top: 28px;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.job-result h2 {
+  margin: 0 0 22px;
+
+  color: #111827;
+}
+
+.job-result h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+
+  color: #1f2937;
+
+  font-size: 16px;
+}
+
+.job-result p {
+  color: #4b5563;
+
+  line-height: 1.6;
+}
+
+.match-score {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.match-score span {
+  color: #6b7280;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.match-score strong {
+  color: #2563eb;
+
+  font-size: 38px;
+}
+
+.score-bar {
+  width: 100%;
+  height: 9px;
+
+  overflow: hidden;
+
+  background: #e5e7eb;
+
+  border-radius: 20px;
+}
+
+.score-fill {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  border-radius: 20px;
+
+  transition: width 0.5s ease;
+}
+
+/* Skills */
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+.skill-badge {
+  padding: 7px 12px;
+
+  background: #eff6ff;
+  color: #1d4ed8;
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Lists */
+
+.job-result ul {
+  padding-left: 22px;
+}
+
+.job-result li {
+  margin-bottom: 9px;
+
+  color: #4b5563;
+
+  line-height: 1.5;
+}
+
+.job-result li strong {
+  color: #1f2937;
+}
+
+.job-result li p {
+  margin: 4px 0 0;
+}
+
+/* ================= JOB ERROR ================= */
+
+.job-match-error {
+  margin-top: 20px;
+
+  padding: 12px 15px;
+
+  background: #fef2f2;
+  color: #b91c1c;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
 }
 
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
 
-  .header {
-    padding: 40px 20px 35px;
+  .sidebar {
+    width: 220px;
   }
 
-  .header h1 {
-    font-size: 30px;
+  .main-content {
+    width: calc(100% - 220px);
+
+    margin-left: 220px;
   }
 
-  .header p {
-    font-size: 14px;
-  }
+  .topbar {
+    height: 75px;
 
-  .header button {
-    position: static;
-    margin-top: 20px;
-  }
-
-  .job-matching,
-  .job-match-result,
-  .job-match-error,
-  .chat-container {
-    width: 92%;
-  }
-
-  .job-matching,
-  .job-match-result {
-    padding: 20px;
-  }
-
-  .messages {
-    height: 450px;
-    padding: 18px;
-  }
-
-  .message {
-    max-width: 88%;
-  }
-
-  .input-area {
-    padding: 12px;
-  }
-
-  .input-area input {
-    min-width: 0;
-  }
-
-  .input-area button {
     padding: 0 16px;
   }
 
-  .score {
-    font-size: 38px;
+  .topbar h1 {
+    font-size: 17px;
   }
-}
 
-/* ================= JOB MATCHING COLOR FIX ================= */
+  .topbar p {
+    display: none;
+  }
 
-.job-matching h2 {
-  color: #1f2937 !important;
-}
+  .clear-chat-btn {
+    padding: 7px 10px;
 
-.job-matching textarea {
-  background: #ffffff !important;
-  color: #1f2937 !important;
-  border: 1px solid #d1d5db !important;
-}
+    font-size: 11px;
+  }
 
-.job-matching textarea::placeholder {
-  color: #9ca3af !important;
-  opacity: 1;
-}
+  .chat-page {
+    height: calc(100vh - 75px);
+  }
 
-.job-matching button {
-  color: #1f2937;
-}
+  .chat-page .messages {
+    padding: 25px 16px;
+  }
 
-.job-matching button:first-of-type {
-  color: #ffffff !important;
-  background: #2563eb !important;
-}
+  .welcome-message {
+    margin-top: 70px;
+  }
 
-.job-matching button:last-of-type {
-  color: #374151 !important;
-  background: #f1f5f9 !important;
+  .welcome-message h2 {
+    font-size: 20px;
+  }
+
+  .chat-page .message {
+    max-width: 90%;
+  }
+
+  .chat-page .input-area {
+    padding: 12px;
+  }
+
+  .chat-page .input-area button {
+    min-width: 70px;
+    padding: 0 14px;
+  }
+
+  .job-page {
+    padding: 25px 15px;
+  }
+
+  .job-card {
+    padding: 20px;
+  }
+
+  .job-card-header h2 {
+    font-size: 21px;
+  }
+
+  .match-score strong {
+    font-size: 30px;
+  }
 }
