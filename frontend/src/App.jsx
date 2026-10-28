@@ -7,7 +7,17 @@ const API_URL = "https://ai-portfolio-backend-0icc.onrender.com"
 
 function App() {
   const [question, setQuestion] = useState('')
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState(() => {
+  const savedMessages = localStorage.getItem('currentChat')
+
+  return savedMessages ? JSON.parse(savedMessages) : []
+})
+
+const [chatHistory, setChatHistory] = useState(() => {
+  const savedHistory = localStorage.getItem('chatHistory')
+
+  return savedHistory ? JSON.parse(savedHistory) : []
+})
   const [isLoading, setIsLoading] = useState(false)
 
   const [jobDescription, setJobDescription] = useState('')
@@ -19,11 +29,16 @@ function App() {
 
   const messagesEndRef = useRef(null)
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: 'smooth',
-    })
-  }, [messages])
+ useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({
+    behavior: 'smooth',
+  })
+
+  localStorage.setItem(
+    'currentChat',
+    JSON.stringify(messages)
+  )
+}, [messages])
 
   const handleSend = async () => {
     if (!question.trim()) return
@@ -145,11 +160,38 @@ function App() {
     }
   }
 
-  const handleNewChat = () => {
-    setMessages([])
-    setQuestion('')
-    setActiveView('chat')
+ const handleNewChat = () => {
+  if (messages.length > 0) {
+    const firstUserMessage = messages.find(
+      (message) => message.sender === 'user'
+    )
+
+    const newChat = {
+      id: Date.now(),
+      title: firstUserMessage
+        ? firstUserMessage.text
+        : 'New Conversation',
+      messages: messages,
+    }
+
+    setChatHistory((prev) => {
+      const updatedHistory = [newChat, ...prev]
+
+      localStorage.setItem(
+        'chatHistory',
+        JSON.stringify(updatedHistory)
+      )
+
+      return updatedHistory
+    })
   }
+
+  setMessages([])
+  localStorage.removeItem('currentChat')
+
+  setQuestion('')
+  setActiveView('chat')
+}
 
   const handleWhyHire = () => {
     setActiveView('chat')
@@ -224,17 +266,25 @@ function App() {
 
           <h3>CONVERSATION HISTORY</h3>
 
-          {messages.length > 0 ? (
-            <div className="history-item">
-              <span>○</span>
-              Current Chat
-            </div>
-          ) : (
-            <p className="no-history">
-              No conversations yet
-            </p>
-          )}
-
+          {chatHistory.length > 0 ? (
+  chatHistory.map((chat) => (
+    <div
+      className="history-item"
+      key={chat.id}
+      onClick={() => {
+        setMessages(chat.messages)
+        setActiveView('chat')
+      }}
+    >
+      <span>○</span>
+      {chat.title}
+    </div>
+  ))
+) : (
+  <p className="no-history">
+    No conversations yet
+  </p>
+)}
         </div>
 
 

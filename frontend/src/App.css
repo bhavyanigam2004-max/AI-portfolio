@@ -155,6 +155,10 @@ textarea {
   color: #e5e7eb;
 
   font-size: 13px;
+  cursor: pointer;
+}
+.history-item:hover {
+  background: #374151;
 }
 
 .history-item span {
